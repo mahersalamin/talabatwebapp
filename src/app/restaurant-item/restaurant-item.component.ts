@@ -22,7 +22,7 @@ export class RestaurantItemComponent implements OnInit {
   }
 
   onMenuClick(id : number){
-    this.router.navigate([`/Menu/${id}`]);
+    this.router.navigate([`/menu/${id}`]);
   }
 
   onEdit(){}

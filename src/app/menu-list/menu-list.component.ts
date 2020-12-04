@@ -23,7 +23,7 @@ export class MenuListComponent implements OnInit {
   constructor(private router: ActivatedRoute) { 
 
     this.router.params.subscribe(params => {
-      console.log(params.id)
+      console.log(params['id'])
     })
 
     this.menuItem.forEach(element => {

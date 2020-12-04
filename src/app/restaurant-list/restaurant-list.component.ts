@@ -21,4 +21,7 @@ export class RestaurantListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addToRestaurant(rest : Restaurant){
+    this.restList.push(rest);
+  }
 }

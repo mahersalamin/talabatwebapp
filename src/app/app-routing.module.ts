@@ -9,7 +9,7 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
 const routes: Routes=[
   {path:'' , component: RestaurantListComponent},
   {path:'AddResturant' , component: AddRestaurantComponent},
-  {path:'Menu/:id‏',component: MenuListComponent}
+  {path:'menu/:id‏',component: MenuListComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

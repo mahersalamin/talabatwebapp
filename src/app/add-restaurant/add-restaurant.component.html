@@ -1,38 +1,40 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()"‏>
-    <label>
-        id:
-        <input type="text" formControlName="id">
-    </label>
-
-    <label>
-        name:
-        <input type="text" formControlName="name">
-    </label>
-
-    <label>
-        image-Link:
-        <input type="text" formControlName="link">
-    </label>
-
-    <label>
-        city:
-        <input type="text" formControlName="city">
-    </label>
-
-    <label>
-        Langitude:
-        <input type="text" formControlName="lng">
-    </label>
-
-    <label>
-        Latitude:
-        <input type="text" formControlName="lat">
-    </label>
-
-    <label>
-        street:
-        <input type="text" formControlName="street">
-    </label>
-
-    <button type="submit" >ADD</button>
-</form>
+<div>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <label>
+            id
+            <input type="text" formControlName="id">
+        </label>
+    
+        <label>
+            name
+            <input type="text" formControlName="name">
+        </label>
+    
+        <label>
+            image-Link
+            <input type="text" formControlName="link">
+        </label>
+    
+        <label>
+            city
+            <input type="text" formControlName="city">
+        </label>
+    
+        <label>
+            Langitude
+            <input type="text" formControlName="lng">
+        </label>
+    
+        <label>
+            Latitude
+            <input type="text" formControlName="lat">
+        </label>
+    
+        <label>
+            street
+            <input type="text" formControlName="street">
+        </label>
+    
+        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+</div>

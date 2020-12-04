@@ -9,14 +9,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./add-restaurant.component.css']
 })
 export class AddRestaurantComponent implements OnInit {
-  id:number;
-  name:string;
-  link:string;
-  lat:number;
-  lng:number;
-  city:string;
-  street:string;
-
+  
   profileForm = new FormGroup({
     id:new FormControl(''),
     name:new FormControl(''),
@@ -35,14 +28,14 @@ export class AddRestaurantComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addRestaurantToList(){
 
-  }
-
-  onSubmit(){
-    console.log(this.profileForm.value)
-  }
 
   @Output() 
   addToRest= new EventEmitter <Restaurant> ();
+
+  
+  onSubmit(){
+    this.addToRest.emit(this.profileForm.value)
+  }
+  
 }
