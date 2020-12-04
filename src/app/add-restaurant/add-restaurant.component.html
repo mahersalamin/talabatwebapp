@@ -1,61 +1,38 @@
-<table>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()"‏>
+    <label>
+        id:
+        <input type="text" formControlName="id">
+    </label>
 
-    <tr>
-        <td>
-            ID
-        </td>
-        <td>
-            Name
-        </td>
-        <td>
-            City
-        </td>
-        <td>
-            Street
-        </td>
-        <td>
-            Latitude
-        </td>
-        <td>
-            Langtitude
-        </td>
-        <td>
-            Image Link
-        </td>
-    </tr>
+    <label>
+        name:
+        <input type="text" formControlName="name">
+    </label>
 
-    <tr>
-        <td>
-            <input type="text">
-        </td>
-        <td>
-            <input type="text">
-        </td>
-        <td>
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  City
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" *ngFor="">Action</a>
-                  
-                </div>
-              </div>
-        </td>
-        <td>
-            <input type="text">
-        </td>
-        <td>
-            <input type="text">
-        </td>
-        <td>
-            <input type="text">
-        </td>
-        <td>
-            <input type="text">
-        </td>
-    </tr>
-</table>
-<div>
-    <button (click)="addRestaurantToList()">Add restaurant</button>
-</div>
+    <label>
+        image-Link:
+        <input type="text" formControlName="link">
+    </label>
+
+    <label>
+        city:
+        <input type="text" formControlName="city">
+    </label>
+
+    <label>
+        Langitude:
+        <input type="text" formControlName="lng">
+    </label>
+
+    <label>
+        Latitude:
+        <input type="text" formControlName="lat">
+    </label>
+
+    <label>
+        street:
+        <input type="text" formControlName="street">
+    </label>
+
+    <button type="submit" >ADD</button>
+</form>

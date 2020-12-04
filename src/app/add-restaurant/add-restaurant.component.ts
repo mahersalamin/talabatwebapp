@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Restaurant } from '../restaurant';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-restaurant',
@@ -7,36 +9,40 @@ import { Restaurant } from '../restaurant';
   styleUrls: ['./add-restaurant.component.css']
 })
 export class AddRestaurantComponent implements OnInit {
+  id:number;
+  name:string;
+  link:string;
+  lat:number;
+  lng:number;
+  city:string;
+  street:string;
+
+  profileForm = new FormGroup({
+    id:new FormControl(''),
+    name:new FormControl(''),
+    link:new FormControl(''),
+    lat:new FormControl(''),
+    lng:new FormControl(''),
+    city:new FormControl(''),
+    street:new FormControl('')
+  });
+
 
   _addRest:Restaurant;
-  restList:Restaurant[]=[
-    new Restaurant(1,"ward","hebron","http://appback.ppu.edu/static/rest1.jpeg",31.31541,35.05328),
-    new Restaurant(2,"zuwar","hebron","http://appback.ppu.edu/static/rest2.jpeg",31.31541,35.05328),
-    new Restaurant(3,"Pizza Home","hebron","http://appback.ppu.edu/static/rest3.jpeg",31.31541,35.05328),
-    new Restaurant(4,"Hebron Restaurant","hebron","http://appback.ppu.edu/static/rest4.jpg",31.31541,35.05328),
-    new Restaurant(5,"City Restaurant","hebron","http://appback.ppu.edu/static/rest5.jpeg",31.31541,35.05328),
-    new Restaurant(6,"Burger King","Beit Jala","http://appback.ppu.edu/static/rest6.jpeg",31.31541,35.05328)
-     
- ]
-
-
-
- 
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
-
   addRestaurantToList(){
 
-    this.restList.push(this._addRest);  
+  }
 
+  onSubmit(){
+    console.log(this.profileForm.value)
   }
 
   @Output() 
   addToRest= new EventEmitter <Restaurant> ();
-  
-  
-
 }

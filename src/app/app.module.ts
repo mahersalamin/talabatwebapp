@@ -12,6 +12,8 @@ import { MenuListComponent } from './menu-list/menu-list.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { AddMenuComponent } from './add-menu/add-menu.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -24,11 +26,13 @@ import { AddMenuComponent } from './add-menu/add-menu.component';
     MenuListComponent,
     MenuItemComponent,
     OrderItemComponent,
-    AddMenuComponent,
+    AddMenuComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

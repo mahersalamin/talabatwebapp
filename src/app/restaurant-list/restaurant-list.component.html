@@ -1,9 +1,1 @@
-<ul>
-    <li>
-        <a routerLink="/restaurantDetails" routerLinkActive="active"> Add restuarant</a>
-    </li>
-</ul>
-<router-outlet></router-outlet>
-<app-restaurant-item  *ngFor="let list of restList"[restItem]="list"> 
-
-</app-restaurant-item> 
+<app-restaurant-item *ngFor="let list of restList" [restItem]="list"> </app-restaurant-item>

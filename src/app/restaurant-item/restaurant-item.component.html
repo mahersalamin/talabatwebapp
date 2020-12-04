@@ -7,7 +7,7 @@
     <span class="card-text"> {{_restaurant.city}} </span>
     <div class="row">
       <div class="col-md-6">
-        <a class="btn btn-primary" (click)="onMenuClick()">Menu</a>
+        <a class="btn btn-primary" (click)="onMenuClick(_restaurant.id)">Menu</a>
       </div>
       <button (click)="onEdit()"> Edit</button>
     </div>

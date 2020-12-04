@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 export class RestaurantItemComponent implements OnInit {
 
   _restaurant: Restaurant;
- 
-
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -23,14 +21,11 @@ export class RestaurantItemComponent implements OnInit {
     this._restaurant=restItem;
   }
 
-  onMenuClick(){
-    this.router.navigateByUrl('/Menu',);
+  onMenuClick(id : number){
+    this.router.navigate([`/Menu/${id}`]);
   }
 
   onEdit(){}
-
-   
-
 
 
 }
