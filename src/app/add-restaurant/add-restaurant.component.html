@@ -1,0 +1,61 @@
+<table>
+
+    <tr>
+        <td>
+            ID
+        </td>
+        <td>
+            Name
+        </td>
+        <td>
+            City
+        </td>
+        <td>
+            Street
+        </td>
+        <td>
+            Latitude
+        </td>
+        <td>
+            Langtitude
+        </td>
+        <td>
+            Image Link
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  City
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" *ngFor="">Action</a>
+                  
+                </div>
+              </div>
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+        <td>
+            <input type="text">
+        </td>
+    </tr>
+</table>
+<div>
+    <button (click)="addRestaurantToList()">Add restaurant</button>
+</div>

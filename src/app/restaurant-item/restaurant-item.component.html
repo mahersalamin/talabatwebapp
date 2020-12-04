@@ -1,22 +1,15 @@
-<div class="movie_card" id="bright">
-    <div class="info_section">
-      <div class="movie_header">
-        
-        <h2>{{_restaurant.name}}</h2>
-       <img [src]="_restaurant.image" alt="">
-        <span class="minutes"></span>
-        <p class="type">{{_restaurant.city}}</p>
+<div class="card" style="width: 22rem;">
+  <img class="card-img-top" [src]='_restaurant.image' alt="restaurant image">
+  <div class="card-body">
+    <h5 class="card-title">{{_restaurant.name}}</h5>
+    <span class="card-text">({{_restaurant.lat}},</span>
+    <span class="card-text">{{_restaurant.lng}})</span>
+    <span class="card-text"> {{_restaurant.city}} </span>
+    <div class="row">
+      <div class="col-md-6">
+        <a class="btn btn-primary" (click)="onMenuClick()">Menu</a>
       </div>
-      <div class="movie_desc">
-        <p class="text">
-          Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for. 
-        </p>
-      </div>
-      <div class="movie_social">
-          <app-restaurant-rating></app-restaurant-rating>
-      </div>
-      <div class="delete_button"><i ></i></div>
-
-
+      <button (click)="onEdit()"> Edit</button>
     </div>
   </div>
+</div>

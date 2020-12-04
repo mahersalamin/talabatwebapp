@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Restaurant } from '../restaurant';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-restaurant-item',
@@ -9,16 +10,26 @@ import { Restaurant } from '../restaurant';
 export class RestaurantItemComponent implements OnInit {
 
   _restaurant: Restaurant;
+ 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
+  
   @Input()
 
   set restItem(restItem:Restaurant){
     this._restaurant=restItem;
   }
+
+  onMenuClick(){
+    this.router.navigateByUrl('/Menu',);
+  }
+
+  onEdit(){}
+
+   
 
 
 
