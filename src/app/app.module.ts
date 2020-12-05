@@ -13,6 +13,8 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { AddMenuComponent } from './add-menu/add-menu.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.component';
+import { EditMenuComponent } from './edit-menu/edit-menu.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuListComponent,
     MenuItemComponent,
     OrderItemComponent,
-    AddMenuComponent
+    AddMenuComponent,
+    EditRestaurantComponent,
+    EditMenuComponent
   ],
   imports: [
     BrowserModule,

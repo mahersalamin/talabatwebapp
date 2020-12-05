@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Restaurant } from '../restaurant';
 import { Router } from '@angular/router';
+import { GetIDService } from '../get-id.service';
+import { DetailsService } from '../details.service';
 
 @Component({
   selector: 'app-restaurant-item',
@@ -10,7 +12,12 @@ import { Router } from '@angular/router';
 export class RestaurantItemComponent implements OnInit {
 
   _restaurant: Restaurant;
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private getIdFromService:GetIDService,
+    private restDetails:DetailsService) {
+
+    }
 
   ngOnInit(): void {
   }
@@ -22,10 +29,13 @@ export class RestaurantItemComponent implements OnInit {
   }
 
   onMenuClick(id : number){
-    this.router.navigate([`/menu/${id}`]);
+    this.getIdFromService._id=id;
+    this.router.navigate(['/menu/',id]);
   }
 
-  onEdit(){}
-
+  onEdit(id : number){
+    this.getIdFromService._id=id;
+    this.router.navigate(['/EditRestaurant/',id]);
+  }
 
 }

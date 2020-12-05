@@ -1,6 +1,9 @@
-<!-- <div *ngIf = "resturant_id == _menuList.rest_id"> -->
-    <p>{{_menuList.id}}</p>
-    <p>{{_menuList.rest_id}}</p>
-    <p>{{_menuList.name}}</p>
-    <p>{{_menuList.descr}}</p>
-<!-- </div> -->
+
+<div class="card">
+  <img [src]="_menuList.image" alt="menu image" style="width:100%">
+  <h1>{{_menuList.name}}</h1>
+  <p class="price">$19.99</p>
+  <p>{{_menuList.descr}}</p>
+  <p><button (click)="addToOrderList()">Add to order list</button></p>
+  <p><button >Edit menu</button></p>
+</div>

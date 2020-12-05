@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from '../order';
 
 @Component({
   selector: 'app-order-item',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderItemComponent implements OnInit {
 
+  _order:Order
   constructor() { }
 
   ngOnInit(): void {
+  }
+  set order(order:Order){
+    this._order=order
   }
 
 }

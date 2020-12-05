@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { GetIDService } from '../get-id.service';
 import { Menu } from '../menu';
 
 @Component({
@@ -11,7 +12,7 @@ export class MenuItemComponent implements OnInit {
   _menuList : Menu;
   resturant_id: number;
 
-  constructor() { 
+  constructor(private router:Router,private getIdFromService:GetIDService ) { 
     
   }
 
@@ -23,8 +24,15 @@ export class MenuItemComponent implements OnInit {
     this._menuList = men;
   }
 
-  set restID( id: number){
-    this.resturant_id = id;
+
+  addToOrderList(){
+
   }
+  
+  editMenuItem(id : number){
+    this.getIdFromService._id=id;
+    this.router.navigate(['/EditMenu/',id]);
+  }
+ 
 
 }

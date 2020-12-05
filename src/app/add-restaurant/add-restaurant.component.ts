@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Restaurant } from '../restaurant';
 import { FormGroup, FormControl } from '@angular/forms';
+import { DetailsService } from '../details.service';
 
 
 @Component({
@@ -20,22 +21,27 @@ export class AddRestaurantComponent implements OnInit {
     street:new FormControl('')
   });
 
-
   _addRest:Restaurant;
   
-  constructor() { }
+  constructor(private restDetail:DetailsService) { }
 
   ngOnInit(): void {
   }
 
 
 
-  @Output() 
-  addToRest= new EventEmitter <Restaurant> ();
+  // @Output() 
+  // addToRest= new EventEmitter <any> ();
+
 
   
   onSubmit(){
-    this.addToRest.emit(this.profileForm.value)
+    //عشان يطبع الاوبجكت اللي تمت اضافته
+    console.log(this.profileForm.value)
+    this.restDetail.restList.push(this.profileForm.value)
+    //عشان يطبع طول الليست الجديد
+    console.log(this.restDetail.restList.length)
+    // this.addToRest.emit(this.profileForm.value);
   }
   
 }
