@@ -62,11 +62,23 @@ export class DetailsService {
     return this._restList
   }
 
+  UpdateRestaurant(restaurantUpdated: Restaurant){
+    let itemindex = this._restList.findIndex(_restList => _restList.id == restaurantUpdated.id);
+    this._restList[itemindex]= restaurantUpdated
+  }
+
+  DeleteRestaurant(restaurantDel: Restaurant){
+    let index = this._restList.findIndex(_restList => _restList.id == restaurantDel.id);
+    this._restList.splice(index, 1);
+  }
+
   set menuList(menuList:Menu[]){
     this._menuList.push(this._menu)
   }
   get menuList() :Menu[]{
     return this._menuList
   }
+
+
 
 }

@@ -1,40 +1,40 @@
-<!-- <div>
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-        <label>
-            id
-            <input type="text" formControlName="id">
-        </label>
-        <br>
-        <label>
-            name
-            <input type="text" formControlName="name">
-        </label>
-        <br>
-        <label>
-            image-Link
-            <input type="text" formControlName="link">
-        </label>
-        <br>
-        <label>
-            city
-            <input type="text" formControlName="city">
-        </label>
-        <br>
-        <label>
-            Langitude
-            <input type="text" formControlName="lng">
-        </label>
-        <br>
-        <label>
-            Latitude
-            <input type="text" formControlName="lat">
-        </label>
-        <br>
-        <label>
-            street
-            <input type="text" formControlName="street">
-        </label>
-        <br>
-        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
-    </form>
-</div> -->
+<form [formGroup]="profileForm" (ngSubmit)="onUpdate(_restUpdate)">
+    <label>
+        id
+        <input matInput type="text" formControlName="id" [(ngModel)]="_restUpdate.id">
+    </label>
+    <br>
+    <label>
+        name
+        <input matInput type="text" formControlName="name" [(ngModel)]="_restUpdate.name">
+    </label>
+    <br>
+    <label>
+        image-Link
+        <input matInput type="text" formControlName="link" >
+    </label>
+    <br>
+    <label>
+        city
+        <input matInput type="text" formControlName="city">
+    </label>
+    <br>
+    <label>
+        Langitude
+        <input matInput type="text" formControlName="lng">
+    </label>
+    <br>
+    <label>
+        Latitude
+        <input matInput type="text" formControlName="lat">
+    </label>
+    <br>
+    <label>
+        street
+        <input matInput type="text" formControlName="street">
+    </label>
+    <br>
+    <button mat-raised-button type="submit" >Submit</button><br>
+</form>
+
+

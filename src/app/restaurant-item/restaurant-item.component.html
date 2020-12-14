@@ -1,5 +1,5 @@
 <div class="card" style="width: 22rem;">
-  <img class="card-img-top" [src]='_restaurant.image' alt="restaurant image">
+  <img class="card-img-top" [src]='_restaurant.image' alt="restaurant image" style= "height: 263px;">
   <div class="card-body">
     <h5 class="card-title">{{_restaurant.name}}</h5>
     <span class="card-text">({{_restaurant.lat}},</span>
@@ -10,7 +10,6 @@
         <a class="btn btn-primary" (click)="onMenuClick(_restaurant.id)">Menu</a>
       </div>
       <div class="col-md-6">
-        <a class="btn btn-primary" (click)="onEdit(_restaurant.id)">Edit</a>
       </div>
       
     </div>
