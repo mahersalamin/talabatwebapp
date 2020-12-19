@@ -20,26 +20,26 @@ export class DetailsService {
     return this.http.get(this.restURL);
   }
 
-  addRestaurants(): Observable<Object> {
+  addRestaurants(body : any): Observable<Object> {
+    //هاظ اللي حذفتو, من المطعم والمنيو
+    // let body = {
+    //  rest: Restaurant,
+    //};
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
     };
-    let body = {
-      rest: Restaurant,
-    };
+    console.log("this is the body "+body)
     return this.http.post(this.restURL, body, httpOptions);
   }
 
-  updateRestaurant(restaurant: Restaurant): Observable<Object> {
+  updateRestaurant(body: any): Observable<Object> { 
+  
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
-    };
-    let body = {
-      rest: Restaurant,
     };
     return this.http.put(this.restURL, body, httpOptions);
   }
@@ -48,15 +48,16 @@ export class DetailsService {
     return this.http.get(this.menuURL);
   }
 
-  addMenus(): Observable<Object> {
+  addMenus(body:any): Observable<Object> {
+    // let body = {
+    //  menu: Menu,
+    //};
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
     };
-    let body = {
-      menu: Menu,
-    };
+    
     return this.http.post(this.menuURL, body, httpOptions);
   }
 }

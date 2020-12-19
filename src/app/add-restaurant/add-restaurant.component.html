@@ -2,42 +2,40 @@
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
         <label>
             id
-            <input type="number" min="0" formControlName="id"
-            #id
-            >
+            <input type="number" min="0" formControlName="id">
         </label>
         <br>
         <label>
             name
-            <input type="text" maxlength="40" formControlName="name" #name>
+            <input type="text" maxlength="40" formControlName="name" >
         </label>
         <br>
         <label>
             image-Link
-            <input #link type="text" formControlName="link">
+            <input  type="text" formControlName="link">
         </label>
         <br>
         <label>
             city
-            <input #city type="text" formControlName="city">
+            <input  type="text" formControlName="city">
         </label>
         <br>
         <label>
             Langitude
-            <input #lng type="number" min="0" formControlName="lng">
+            <input type="number" min="0" formControlName="lng">
         </label>
         <br>
         <label>
             Latitude
-            <input #lat type="number" min="0" formControlName="lat">
+            <input  type="number" min="0" formControlName="lat">
         </label>
         <br>
         <label>
             street
-            <input #street type="text" formControlName="street">
+            <input  type="text" formControlName="street">
         </label>
         <br>
-        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+        <button type="submit"  [disabled]="!profileForm.valid">Submit</button>
     </form>
 </div>
 
@@ -54,7 +52,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let rest of restList">
+            <tr *ngFor="let rest of reslis">
                 <th scope="row">{{rest.id}}</th>
                 <td>{{rest.name}}</td>
                 <td>{{rest.image}}</td>
