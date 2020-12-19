@@ -1,84 +1,62 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Menu } from './menu';
 import { Order } from './order';
 import { Restaurant } from './restaurant';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DetailsService {
+  constructor(private http: HttpClient) {}
+  _restaurant: Restaurant;
+  _menu: Menu;
+  _order: Order;
+  restURL: string = 'http://localhost:3000/restaurant';
+  menuURL: string = 'http://localhost:3000/menu';
 
-  _restaurant:Restaurant
-  _menu:Menu
-  _order:Order
-
-  _restList:Restaurant[]=[
-    new Restaurant(1,"ward","hebron","http://appback.ppu.edu/static/rest1.jpeg",31.31541,35.05328),
-    new Restaurant(2,"zuwar","hebron","http://appback.ppu.edu/static/rest2.jpeg",31.31541,35.05328),
-    new Restaurant(3,"Pizza Home","hebron","http://appback.ppu.edu/static/rest3.jpeg",31.31541,35.05328),
-    new Restaurant(4,"Hebron Restaurant","hebron","http://appback.ppu.edu/static/rest4.jpg",31.31541,35.05328),
-    new Restaurant(5,"City Restaurant","hebron","http://appback.ppu.edu/static/rest5.jpeg",31.31541,35.05328),
-    new Restaurant(6,"Burger King","Beit Jala","http://appback.ppu.edu/static/rest6.jpeg",31.31541,35.05328)
-  ]
-
-  _menuList:Menu[]=[
-    new Menu(1,1,"maklouba", "Good Maklouba Good Maklouba Falafel  MakloubaMaklouba" , "http://appback.ppu.edu/static/rest1.jpeg" , 50),
-    new Menu(1,2,"Falafel", "Good Falafel Good Falafel Falafel  Falafel" , "http://appback.ppu.edu/static/rest2.jpeg" , 50),
-    new Menu(1,3,"Falafel", "Good Falafel Good Falafel Falafel  Falafel" , "http://appback.ppu.edu/static/rest2.jpeg" , 50),
-    new Menu(2,1,"Falafel", "Good Falafel Good Falafel Falafel  Falafel" , "http://appback.ppu.edu/static/rest2.jpeg" , 50),
-    new Menu(2,2,"Falafel", "Good Falafel Good Falafel Falafel  Falafel" , "http://appback.ppu.edu/static/rest2.jpeg" , 50),
-    new Menu(2,3,"Falafel", "Good Falafel Good Falafel Falafel  Falafel" , "http://appback.ppu.edu/static/rest2.jpeg" , 50),
-    new Menu(3,1,"Falafel", "Good Falafel Good Falafel Falafel  Falafel" , "http://appback.ppu.edu/static/rest2.jpeg" , 50),
-
-  ]
-
-  constructor() { }
-
-  set restautant(restaurant:Restaurant){
-    this._restaurant=restaurant;
-  }
-  get restautant(){
-    return this._restaurant
+  getRestaurants(): Observable<Object> {
+    return this.http.get(this.restURL);
   }
 
-  set menu(menu:Menu){
-    this._menu=menu
-  }
-  get menu(){
-    return this._menu
-  }
-
-  set order(order:Order){
-    this._order=order
-  }
-  get order(){
-    return this._order
+  addRestaurants(): Observable<Object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    let body = {
+      rest: Restaurant,
+    };
+    return this.http.post(this.restURL, body, httpOptions);
   }
 
-  set restList(restList:Restaurant[]){
-    this._restList.push(this._restaurant);
-  }
-  get restList() :Restaurant[]{
-    return this._restList
-  }
-
-  UpdateRestaurant(restaurantUpdated: Restaurant){
-    let itemindex = this._restList.findIndex(_restList => _restList.id == restaurantUpdated.id);
-    this._restList[itemindex]= restaurantUpdated
-  }
-
-  DeleteRestaurant(restaurantDel: Restaurant){
-    let index = this._restList.findIndex(_restList => _restList.id == restaurantDel.id);
-    this._restList.splice(index, 1);
+  updateRestaurant(restaurant: Restaurant): Observable<Object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    let body = {
+      rest: Restaurant,
+    };
+    return this.http.put(this.restURL, body, httpOptions);
   }
 
-  set menuList(menuList:Menu[]){
-    this._menuList.push(this._menu)
-  }
-  get menuList() :Menu[]{
-    return this._menuList
+  getMenu(): Observable<Object> {
+    return this.http.get(this.menuURL);
   }
 
-
-
+  addMenus(): Observable<Object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    let body = {
+      menu: Menu,
+    };
+    return this.http.post(this.menuURL, body, httpOptions);
+  }
 }

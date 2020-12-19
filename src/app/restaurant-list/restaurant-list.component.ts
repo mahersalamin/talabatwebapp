@@ -9,14 +9,23 @@ import { Restaurant } from '../restaurant';
 })
 export class RestaurantListComponent implements OnInit {
   restList: Restaurant[] =[]
+  errorMessage: String;
   constructor(private restDetail: DetailsService) {}
 
   ngOnInit(): void {
-    this.restList=this.restDetail.restList
+  
+    this.restDetail.getRestaurants().subscribe(
+      (restaurants: Restaurant[])=> {
+        this.restList = restaurants;
+        console.log(JSON.stringify(this.restList));
+      },
+      (error: any)=> {
+        console.log(error);
+        this.errorMessage = error;
+      }
+
+    )
   }
 
-  // addToRestaurant() {
-  //   console.log(this.restList.length);
-  //   this.restDetail.restList.push;
-  // }
+  
 }

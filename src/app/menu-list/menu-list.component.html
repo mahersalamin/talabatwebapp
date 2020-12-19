@@ -1,6 +1,9 @@
-
 <div class="container">
+    <div class="row">
+        <p><button  >Edit menu</button></p>
+    </div>
     <div class="row row-cols-3 ">
-        <app-menu-item *ngFor="let list of rest_menu" [menuList]="list" ></app-menu-item>
+        <app-menu-item *ngFor="let list of menuItem" [menu]="list" ></app-menu-item>
     </div>
 </div>
+

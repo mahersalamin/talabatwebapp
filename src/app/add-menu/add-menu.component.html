@@ -1,18 +1,18 @@
-<!-- <div>
+<div>
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
         <label>
             id
-            <input type="text" formControlName="id">
+            <input type="number" min="0" formControlName="id">
         </label>
         <br>
         <label>
             restaurant id
-            <input type="text" formControlName="rest_id">
+            <input type="number" min="0" formControlName="rest_id">
         </label>
         <br>  
         <label>
             name
-            <input type="text" formControlName="name">
+            <input type="text" maxlength="50" formControlName="name">
         </label>
         <br>
         <label>
@@ -27,10 +27,10 @@
         <br>
         <label>
             price
-            <input type="text" formControlName="price">
+            <input type="number" min="0" formControlName="price">
         </label>
         
     
         <button type="submit" [disabled]="!profileForm.valid">Submit</button>
     </form>
-</div> -->
+</div>

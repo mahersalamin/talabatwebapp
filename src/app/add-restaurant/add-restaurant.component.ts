@@ -23,30 +23,39 @@ export class AddRestaurantComponent implements OnInit {
     city:new FormControl(''),
     street:new FormControl('')
   });
-  restList: Restaurant[] =[]
 
-  _addRest:Restaurant;
+
+  restList: Restaurant=new Restaurant()
+  responseText:string
   
   constructor(private restDetail:DetailsService, public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
-    this.restList=this.restDetail.restList;
+    
   }
 
 
-  openDialog(rest) {
+  openDialog(rest:Restaurant) {
 
     this.dialog.open(EditRestaurantComponent, {
       width: '50%',
       backdropClass: 'custom-dialog-backdrop-class',
       panelClass: 'custom-dialog-panel-class',
-      data: { Resturant: rest }
+      data: { rest: Restaurant }
     });
   }
 
   onSubmit(){
-    this.restDetail.restList.push(this.profileForm.value)
+    console.log("hbsdbfkhs")
+    console.log(JSON.stringify(this.restList));
+    
+    this.restDetail.addRestaurants().subscribe(
+      (data)=> this.responseText = JSON.stringify(this.profileForm.value),
+      (error)=> this.responseText = error
+    )
+    console.log(this.responseText)
+    
 
     this.profileForm.reset({
       id:'',
@@ -59,9 +68,9 @@ export class AddRestaurantComponent implements OnInit {
     });
   }
 
-  delete(rest){
-    this.restDetail.DeleteRestaurant(rest);
-  }
+  // delete(rest){
+  //   this.restDetail.DeleteRestaurant(rest);
+  // }
 
 
 }

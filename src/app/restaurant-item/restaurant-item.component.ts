@@ -11,11 +11,10 @@ import { DetailsService } from '../details.service';
 })
 export class RestaurantItemComponent implements OnInit {
 
-  _restaurant: Restaurant;
+  //_restaurant: Restaurant;
   constructor(
     private router: Router,
-    private getIdFromService:GetIDService,
-    private restDetails:DetailsService) {
+    private getIdFromService:GetIDService,) {
 
     }
 
@@ -23,19 +22,14 @@ export class RestaurantItemComponent implements OnInit {
   }
   
   @Input()
-
-  set restItem(restItem:Restaurant){
-    this._restaurant=restItem;
-  }
+  rest:Restaurant
+  
 
   onMenuClick(id : number){
     this.getIdFromService._id=id;
     this.router.navigate(['/menu/',id]);
   }
 
-  onEdit(id : number){
-    this.getIdFromService._id=id;
-    this.router.navigate(['/EditRestaurant/',id]);
-  }
+  
 
 }

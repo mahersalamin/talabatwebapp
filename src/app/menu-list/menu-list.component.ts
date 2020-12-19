@@ -11,11 +11,13 @@ import { Menu } from '../menu';
   styleUrls: ['./menu-list.component.css'],
 })
 export class MenuListComponent implements OnInit {
-  rest_menu: Menu[] = [];
+  
 
   menuItem: Menu[] = [];
+  errorMessage:string
 
   id: number;
+  getIdFromService: any;
 
   constructor(
     private router: ActivatedRoute,
@@ -24,14 +26,23 @@ export class MenuListComponent implements OnInit {
   ) {
     this.id = idService._id;
 
-    this.menuItemService._menuList.forEach((element) => {
-      if (element.rest_id == this.id) {
-        this.rest_menu.push(element);
-        console.log(element)
-      }
-    });
+    
   }
   ngOnInit(): void {
-    this.menuItem = this.menuItemService._menuList;
+    this.menuItemService.getMenu().subscribe(
+      (menus: Menu[])=> {
+        this.menuItem = menus;
+        console.log(JSON.stringify(this.menuItem));
+      },
+      (error: any)=> {
+        console.log(error);
+        this.errorMessage = error;
+      }
+
+    )
+  }
+  onEdit(id : number){
+    this.getIdFromService._id=id;
+    
   }
 }

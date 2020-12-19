@@ -1,5 +1,5 @@
 <div class="container">
     <div class="row row-cols-3">
-        <app-restaurant-item *ngFor="let list of restList" [restItem]="list" (addToRest) = "addToRestaurant($event)"></app-restaurant-item> 
+        <app-restaurant-item *ngFor="let list of restList" [rest]="list" (addToRest) = "addToRestaurant($event)"></app-restaurant-item> 
     </div>
 </div>

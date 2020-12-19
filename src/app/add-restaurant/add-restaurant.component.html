@@ -2,37 +2,39 @@
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
         <label>
             id
-            <input type="text" formControlName="id">
+            <input type="number" min="0" formControlName="id"
+            #id
+            >
         </label>
         <br>
         <label>
             name
-            <input type="text" formControlName="name">
+            <input type="text" maxlength="40" formControlName="name" #name>
         </label>
         <br>
         <label>
             image-Link
-            <input type="text" formControlName="link">
+            <input #link type="text" formControlName="link">
         </label>
         <br>
         <label>
             city
-            <input type="text" formControlName="city">
+            <input #city type="text" formControlName="city">
         </label>
         <br>
         <label>
             Langitude
-            <input type="text" formControlName="lng">
+            <input #lng type="number" min="0" formControlName="lng">
         </label>
         <br>
         <label>
             Latitude
-            <input type="text" formControlName="lat">
+            <input #lat type="number" min="0" formControlName="lat">
         </label>
         <br>
         <label>
             street
-            <input type="text" formControlName="street">
+            <input #street type="text" formControlName="street">
         </label>
         <br>
         <button type="submit" [disabled]="!profileForm.valid">Submit</button>
@@ -57,8 +59,8 @@
                 <td>{{rest.name}}</td>
                 <td>{{rest.image}}</td>
                 <td>{{rest.city}}</td>
-                <td><button type="button" class="btn btn-primary" mat-button (click)="openDialog(rest)">Update</button></td>
-                <td><button type="button" class="btn btn-danger" (click)="delete(rest)">Delete</button></td>
+                <td><button type="button" class="btn btn-primary" mat-button ()="openDialog(rest)">Update</button></td>
+                <td><button type="button" class="btn btn-danger" ()="delete(rest)">Delete</button></td>
             </tr>
         </tbody>
     </table>

@@ -1,13 +1,13 @@
 <div class="card" style="width: 22rem;">
-  <img class="card-img-top" [src]='_restaurant.image' alt="restaurant image" style= "height: 263px;">
+  <img class="card-img-top" [src]='rest.image' alt="restaurant image" style= "height: 263px;">
   <div class="card-body">
-    <h5 class="card-title">{{_restaurant.name}}</h5>
-    <span class="card-text">({{_restaurant.lat}},</span>
-    <span class="card-text">{{_restaurant.lng}})</span>
-    <span class="card-text"> {{_restaurant.city}} </span>
+    <h5 class="card-title">{{rest.name}}</h5>
+    <span class="card-text">({{rest.lat}},</span>
+    <span class="card-text">{{rest.lng}})</span>
+    <span class="card-text"> {{rest.city}} </span>
     <div class="row">
       <div class="col-md-6">
-        <a class="btn btn-primary" (click)="onMenuClick(_restaurant.id)">Menu</a>
+        <a class="btn btn-primary" (click)="onMenuClick(rest.id)">Menu</a>
       </div>
       <div class="col-md-6">
       </div>

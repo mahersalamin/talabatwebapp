@@ -1,7 +1,7 @@
-<form [formGroup]="profileForm" (ngSubmit)="onUpdate(_restUpdate)">
+<form [formGroup]="profileForm" (ngSubmit)="onUpdate(_restUpdate)" >
     <label>
         id
-        <input matInput type="text" formControlName="id" [(ngModel)]="_restUpdate.id">
+        <input matInput type="number" min="1" formControlName="id" [(ngModel)]="_restUpdate.id">
     </label>
     <br>
     <label>
@@ -11,27 +11,27 @@
     <br>
     <label>
         image-Link
-        <input matInput type="text" formControlName="link" >
+        <input matInput type="text" formControlName="link" [(ngModel)]="_restUpdate.image" >
     </label>
     <br>
     <label>
         city
-        <input matInput type="text" formControlName="city">
+        <input matInput type="text" formControlName="city" [(ngModel)]="_restUpdate.city">
     </label>
     <br>
     <label>
         Langitude
-        <input matInput type="text" formControlName="lng">
+        <input matInput type="number" min="1" formControlName="lng" [(ngModel)]="_restUpdate.lng">
     </label>
     <br>
     <label>
         Latitude
-        <input matInput type="text" formControlName="lat">
+        <input matInput type="number" min="1" formControlName="lat" [(ngModel)]="_restUpdate.lat">
     </label>
     <br>
     <label>
         street
-        <input matInput type="text" formControlName="street">
+        <input matInput type="text" formControlName="street" [(ngModel)]="_restUpdate.street">
     </label>
     <br>
     <button mat-raised-button type="submit" >Submit</button><br>

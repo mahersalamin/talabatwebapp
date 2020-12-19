@@ -20,9 +20,10 @@ export class MenuItemComponent implements OnInit {
   }
 
   @Input()
-  set menuList(men : Menu){
-    this._menuList = men;
-  }
+  menu:Menu
+  // set menuList(men : Menu){
+  //   this._menuList = men;
+  // }
 
 
   addToOrderList(){
