@@ -15,16 +15,24 @@ export class DetailsService {
   _order: Order;
   restURL: string = 'http://localhost:3000/restaurant';
   menuURL: string = 'http://localhost:3000/menu';
+  orderURL: string = 'http://localhost:3000/order';
+
 
   getRestaurants(): Observable<Object> {
     return this.http.get(this.restURL);
   }
 
+  deleteRestaurant(id : any): Observable<Object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    console.log(this.restURL+'/'+id)
+    return this.http.delete(this.restURL+'/'+id, httpOptions).pipe();
+  }
+
   addRestaurants(body : any): Observable<Object> {
-    //هاظ اللي حذفتو, من المطعم والمنيو
-    // let body = {
-    //  rest: Restaurant,
-    //};
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -34,24 +42,25 @@ export class DetailsService {
     return this.http.post(this.restURL, body, httpOptions);
   }
 
-  updateRestaurant(body: any): Observable<Object> { 
-  
+  updateRestaurant(body: Restaurant , id :number): Observable<Object> { 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
       }),
     };
-    return this.http.put(this.restURL, body, httpOptions);
+    return this.http.put(this.restURL + '/'+id, body, httpOptions);
   }
 
-  getMenu(): Observable<Object> {
+  getMenus(): Observable<Object> {
     return this.http.get(this.menuURL);
   }
 
+  getRestMenus(id: number): Observable<Object> {
+    return this.http.get(this.menuURL + '/'+id);
+  }
+
   addMenus(body:any): Observable<Object> {
-    // let body = {
-    //  menu: Menu,
-    //};
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -60,4 +69,18 @@ export class DetailsService {
     
     return this.http.post(this.menuURL, body, httpOptions);
   }
+
+  deletemenu(id : any): Observable<Object> {
+    return this.http.delete(this.menuURL+'/'+id).pipe();
+  }
+
+  AddToOrder(order : Order): Observable<Object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.http.post(this.orderURL, order, httpOptions);
+  }
+
 }

@@ -15,47 +15,45 @@ export class AddMenuComponent implements OnInit {
     id:new FormControl(''),
     rest_id:new FormControl(''),
     name:new FormControl(''),
-    link:new FormControl(''),
-    desc:new FormControl(''),
+    image:new FormControl(''),
+    descr:new FormControl(''),
     price:new FormControl(''),
   })
 
-  
   menu:Menu = new Menu()
   responseText:string
+  menuItem: Menu[] = [];
 
-  constructor(private menuDetail:DetailsService) {
-    
-   }
+  constructor(private menuDetail:DetailsService) {}
 
   ngOnInit(): void {
-    //this.menuList=this.menuDetail.menuList
+    this.menuDetail.getMenus().subscribe(
+      (menus: Menu[])=> {
+        this.menuItem = menus;
+      },
+      (error: any)=> {
+        console.log(error);
+      }
+
+    )
   }
 
   onSubmit(){
-    console.log(JSON.stringify(this.menu));
-    
-    this.menuDetail.addRestaurants().subscribe(
-      (data)=> this.responseText = JSON.stringify(this.profileForm.value),
+    this.menuDetail.addMenus(this.profileForm.value).subscribe(
+      (data)=> console.log(),
       (error)=> this.responseText = error
     )
-    console.log(this.responseText)
-
     this.profileForm.reset({
       id:'',
       rest_id:'',
       name:'',
-      link:'',
-      desc:'',
+      image:'',
+      descr:'',
       price:'',
     })
-    
-
-    
   }
-    
-  
 
-  
-
+  delete(id : number){
+    this.menuDetail.deletemenu(id).subscribe();
+  }
 }

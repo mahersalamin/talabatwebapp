@@ -17,7 +17,6 @@ export class RestaurantListComponent implements OnInit {
     this.restDetail.getRestaurants().subscribe(
       (restaurants: Restaurant[])=> {
         this.restList = restaurants;
-        console.log(JSON.stringify(this.restList));
       },
       (error: any)=> {
         console.log(error);

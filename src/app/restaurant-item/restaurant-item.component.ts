@@ -11,7 +11,7 @@ import { DetailsService } from '../details.service';
 })
 export class RestaurantItemComponent implements OnInit {
 
-  //_restaurant: Restaurant;
+  x :number = 3;
   constructor(
     private router: Router,
     private getIdFromService:GetIDService,) {
@@ -29,7 +29,4 @@ export class RestaurantItemComponent implements OnInit {
     this.getIdFromService._id=id;
     this.router.navigate(['/menu/',id]);
   }
-
-  
-
 }
