@@ -1,32 +1,42 @@
 <div>
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-        <label>
-            restaurant id
-            <input type="number" min="0" formControlName="rest_id">
-        </label>
-        <br>  
-        <label>
-            name
-            <input type="text" maxlength="50" formControlName="name">
-        </label>
-        <br>
-        <label>
-            image-Link
-            <input type="text" formControlName="image">
-        </label>
-        <br>
-        <label>
-            description
-            <input type="text" formControlName="descr">
-        </label>
-        <br>
-        <label>
-            price
-            <input type="number" min="0" formControlName="price">
-        </label>
-        
-    
-        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>
+                        restaurant id
+                        <input type="number" min="0" formControlName="rest_id">
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        name
+                        <input type="text" maxlength="50" formControlName="name">
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        image-Link
+                        <input type="text" formControlName="image">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>
+                        description
+                        <input type="text" formControlName="descr">
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        price
+                        <input type="number" min="0" formControlName="price">
+                    </label>
+                    <button type="submit" class="btn btn-outline-success" [disabled]="!profileForm.valid">Add</button>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
 

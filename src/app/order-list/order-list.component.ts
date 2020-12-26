@@ -1,5 +1,8 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DetailsService } from '../details.service';
+import { GetIDService } from '../get-id.service';
 import { Order } from '../order';
 
 @Component({
@@ -9,15 +12,33 @@ import { Order } from '../order';
 })
 export class OrderListComponent implements OnInit {
 
-  _orderItem :Order;
-  constructor() { }
+  orderItem: Order[] = [];
+  errorMessage:string
+  
+  
+  
+  constructor(
+    private router: ActivatedRoute,
+    
+    private orderItemService: DetailsService
+  ) { 
+    
+  }
 
   ngOnInit(): void {
-  }
-  @Input()
+    this.orderItemService.getOrders(1).subscribe(
+      (orders: Order[])=> {
+        this.orderItem = orders;
+      },
+      (error: any)=> {
+        console.log(error);
+        this.errorMessage = error;
+      }
 
-  set orderItem(orderItem:Order){
-    this._orderItem=orderItem;
+    )
   }
+  
+
+  
 
 }

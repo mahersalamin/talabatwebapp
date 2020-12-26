@@ -15,7 +15,7 @@ export class DetailsService {
   _order: Order;
   restURL: string = 'http://localhost:3000/restaurant';
   menuURL: string = 'http://localhost:3000/menu';
-  orderURL: string = 'http://localhost:3000/order';
+  orderURL: string = 'http://localhost:3000/orders';
 
 
   getRestaurants(): Observable<Object> {
@@ -81,6 +81,18 @@ export class DetailsService {
       }),
     };
     return this.http.post(this.orderURL, order, httpOptions);
+  }
+  getOrders(id: number): Observable<Object> {
+    return this.http.get(this.orderURL+'/'+id);
+  }
+  deleteOrder(id : any): Observable<Object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    console.log(this.orderURL+'/'+id)
+    return this.http.delete(this.orderURL+'/'+id, httpOptions).pipe();
   }
 
 }

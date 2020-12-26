@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DetailsService } from '../details.service';
 import { Order } from '../order';
 
 @Component({
@@ -8,13 +9,17 @@ import { Order } from '../order';
 })
 export class OrderItemComponent implements OnInit {
 
-  _order:Order
-  constructor() { }
+  
+  constructor(private orderDetail:DetailsService,) { }
 
   ngOnInit(): void {
   }
-  set order(order:Order){
-    this._order=order
+  @Input()
+  order:Order
+  
+  Confirm(){}
+  delete(id:number){
+    this.orderDetail.deleteOrder(id).subscribe
+   
   }
-
 }

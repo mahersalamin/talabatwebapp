@@ -162,13 +162,13 @@ body .card_right__button a:hover {
   transition-duration: .5s;
 }
 .card-title{
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
 }
 
 ngb-rating {
   color: red;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .dirs{

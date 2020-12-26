@@ -34,6 +34,8 @@ export class MenuItemComponent implements OnInit {
     this.order.AddToOrder(this.ordr).subscribe(
       (data) => console.log(data)
     );
+    this.router.navigate(['/orders/',this.ordr.customer_id]);
+    
   }
   
   editMenuItem(id : number){

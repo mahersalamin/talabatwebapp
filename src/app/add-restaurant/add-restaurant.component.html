@@ -1,36 +1,49 @@
 <div>
     <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-        <label>
-            name
-            <input type="text" maxlength="40" formControlName="name">
-        </label>
-        <br>
-        <label>
-            image-Link
-            <input type="text" formControlName="link">
-        </label>
-        <br>
-        <label>
-            city
-            <input type="text" formControlName="city">
-        </label>
-        <br>
-        <label>
-            Langitude
-            <input type="number" min="0" formControlName="lng">
-        </label>
-        <br>
-        <label>
-            Latitude
-            <input type="number" min="0" formControlName="lat">
-        </label>
-        <br>
-        <label>
-            street
-            <input type="text" formControlName="street">
-        </label>
-        <br>
-        <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>
+                        name
+                        <input type="text" maxlength="40" formControlName="name">
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        image-Link
+                        <input type="text" formControlName="link">
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        city
+                        <input type="text" formControlName="city">
+                    </label>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <label>
+                        Langitude
+                        <input type="number" min="0" formControlName="lng">
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        Latitude
+                        <input type="number" min="0" formControlName="lat">
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label>
+                        street
+                        <input type="text" formControlName="street">
+                    </label>
+                    <button type="submit"  class="btn btn-outline-success"[disabled]="!profileForm.valid">Add</button>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
 
@@ -66,7 +79,7 @@
         <form [formGroup]="profileForm" (ngSubmit)="Update()">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Update Restaurant</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
