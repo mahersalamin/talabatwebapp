@@ -6,7 +6,7 @@
     <span class="card-text"> {{rest.lng}}) </span>
     <span class="card-text">  {{ rest.city}} </span>
     <div class="dirs">
-      <ngb-rating [max]="5" [(rate)]="x" [readonly]="false"></ngb-rating>
+      <ngb-rating [max]="5" [(rate)]="x" [readonly]="false" (rateChange)="onRateChange($event , rest)"></ngb-rating>
     </div>
     <div class="row">
       <div class="col-md-6">

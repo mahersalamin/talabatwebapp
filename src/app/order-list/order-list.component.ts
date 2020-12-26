@@ -15,7 +15,7 @@ export class OrderListComponent implements OnInit {
   orderItem: Order[] = [];
   errorMessage:string
   
-  
+  TotalPrice: number = 0;
   
   constructor(
     private router: ActivatedRoute,
@@ -34,11 +34,13 @@ export class OrderListComponent implements OnInit {
         console.log(error);
         this.errorMessage = error;
       }
-
     )
-  }
-  
 
-  
+    // for(var ord of this.orderItem){
+    //   this.TotalPrice += ord;
+    // }
+  }
+
+  Confirm(){}
 
 }

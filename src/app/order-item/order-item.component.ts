@@ -16,10 +16,8 @@ export class OrderItemComponent implements OnInit {
   }
   @Input()
   order:Order
-  
-  Confirm(){}
+
   delete(id:number){
-    this.orderDetail.deleteOrder(id).subscribe
-   
+    this.orderDetail.deleteOrder(id).subscribe();
   }
 }

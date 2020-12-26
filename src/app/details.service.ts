@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Menu } from './menu';
 import { Order } from './order';
 import { Restaurant } from './restaurant';
+import { Restaurantrating } from './restaurantrating';
 
 @Injectable({
   providedIn: 'root',
@@ -16,10 +17,16 @@ export class DetailsService {
   restURL: string = 'http://localhost:3000/restaurant';
   menuURL: string = 'http://localhost:3000/menu';
   orderURL: string = 'http://localhost:3000/orders';
+  rateURL: string = 'http://localhost:3000/rating';
+
 
 
   getRestaurants(): Observable<Object> {
     return this.http.get(this.restURL);
+  }
+
+  getRestaurantsID(): Observable<Object> {
+    return this.http.get('http://localhost:3000/restaurantid');
   }
 
   deleteRestaurant(id : any): Observable<Object> {
@@ -28,7 +35,6 @@ export class DetailsService {
         'Content-Type': 'application/json',
       }),
     };
-    console.log(this.restURL+'/'+id)
     return this.http.delete(this.restURL+'/'+id, httpOptions).pipe();
   }
 
@@ -74,6 +80,15 @@ export class DetailsService {
     return this.http.delete(this.menuURL+'/'+id).pipe();
   }
 
+  updateMenu(body: Menu , id :number): Observable<Object> { 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.http.put(this.menuURL + '/'+id, body, httpOptions);
+  }
+
   AddToOrder(order : Order): Observable<Object> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -91,8 +106,16 @@ export class DetailsService {
         'Content-Type': 'application/json',
       }),
     };
-    console.log(this.orderURL+'/'+id)
     return this.http.delete(this.orderURL+'/'+id, httpOptions).pipe();
+  }
+
+  AddRating(rate : Restaurantrating): Observable<Object> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    return this.http.post(this.rateURL, rate, httpOptions);
   }
 
 }

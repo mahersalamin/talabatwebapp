@@ -5,12 +5,7 @@
         <p class="card-text">Quantity of orders : {{order.quantity}} </p>
         <span class="card-text"> Date of ordering : {{order.date_rated}} </span>
         <div class="row">
-          <div class="col-md-6">
-            <a class="btn btn-primary" (click)="Confirm()">Confirm</a>
-            
-          </div>
           <a class="btn btn-danger" (click)=delete(order.id)>delete</a>
-          
         </div>
       </div>
   </div>

@@ -1,5 +1,8 @@
 <div class="container">
+    <div class="col-md-6">
+        <a class="btn btn-primary" (click)="Confirm()">Confirm</a>
+    </div>
     <div class="row row-cols-3 ">
-        <app-order-item *ngFor="let list of orderItem" [order]="list" ></app-order-item>
+        <app-order-item *ngFor="let list of orderItem" [order]="list"></app-order-item>
     </div>
 </div>

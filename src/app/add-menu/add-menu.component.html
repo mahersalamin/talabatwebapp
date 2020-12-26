@@ -5,7 +5,11 @@
                 <div class="col-md-3">
                     <label>
                         restaurant id
-                        <input type="number" min="0" formControlName="rest_id">
+                        <select formControlName="rest_id">
+                            <option *ngFor="let id of restList" [ngValue]="id">
+                                {{id.rest_id}}
+                            </option>
+                        </select>‏
                     </label>
                 </div>
                 <div class="col-md-3">
@@ -60,9 +64,57 @@
                 <td>{{list.descr}}</td>
                 <td>{{list.image}}</td>
                 <td>{{list.price}}</td>
-                <td><button type="button" class="btn btn-primary" mat-button (click)="openDialog(list)">Update</button></td>
+                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" (click)="renderData(list)">Update</button></td>
                 <td><button type="button" class="btn btn-danger" (click)="delete(list.id)">Delete</button></td>
             </tr>
         </tbody>
     </table>
+</div>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <form [formGroup]="profileForm" (ngSubmit)="Update()">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Update Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>
+                    restaurant id
+                    <input type="text" maxlength="40"  formControlName="rest_id" class="form-control" value="{{rend_data.rest_id}}">
+                </label>
+                    <label>
+                        name
+                        <input type="text" maxlength="40"  formControlName="name" class="form-control" value="{{rend_data.name}}">
+                    </label>
+                    <br>
+                    <label>
+                        image-Link
+                        <input type="text"  formControlName="image" class="form-control" value="{{rend_data.image}}">
+                    </label>
+                    <br>
+                    <label>
+                        Description 
+                        <input type="text"  formControlName="descr" class="form-control" value="{{rend_data.descr}}">
+                    </label>
+                    <br>
+                    <label>
+                        Price
+                        <input type="number" min="0" formControlName="price" class="form-control" value="{{rend_data.price}}">
+                    </label>
+                    <br>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid">Update</button>
+            </div>
+        </div>
+    </form>
+    </div>
 </div>
